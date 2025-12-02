@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <%- include("../partials/cabecalho.ejs"); %>
+</head>
+<body>
+    <div class="container">
+        <% if(disciplina==undefined){%>
+            <div>Não há disciplina com esse nome</div>
+        <%}else{%>
+            <div>Nome: <%=disciplina.nome%></div>
+            <div>Carga Horária: <%=disciplina.cargaHoraria%></div>
+            <div>Professor: <%=disciplina.professor%></div>
+        <%} %>
+        <br><a href="/disciplinas"  class="btn btn-primary">Voltar</a>
+    </div>
+    <%- include("../partials/rodape.ejs"); %>
+</body>
+</html>

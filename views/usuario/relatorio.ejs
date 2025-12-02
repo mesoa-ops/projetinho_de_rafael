@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <%- include("../partials/cabecalho.ejs"); %>
+</head>
+<body>
+    <div class="container">
+        <div><a href="/usuarios/cadastrar" class="btn btn-success">Cadastrar</a></div>
+        <h2>Relatório de usuários</h2>
+    <% if(status=="1"){%>
+        <div class="alert alert-success alert-dismissible">
+            Usuário cadastrado com <b>sucesso!</b>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" slot="end"></button><br>
+        </div>
+    <% }else if(status=="2"){ %>
+            <div class="alert alert-danger alert-dismissible">
+                Usuário removido com <b>sucesso!</b>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" slot="end"></button><br>
+            </div>
+        <% }else if(status=="3"){ %>
+            <div class="alert alert-warning alert-dismissible">
+                Usuário atualizado com <b>sucesso!</b>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" slot="end"></button><br>
+            </div>
+        <% }; %>
+    <table class="table table-striped">
+        <tr>
+            <th>Nome</th>
+            <th>Email</th>
+            <th>Detalhar</th>
+            <th>Atualizar</th>
+            <th>Excluir</th>
+        </tr>
+        <%for(const x of usuarios){%>
+            <tr>
+                <td><div><%=x.nome%></div></td>
+                <td><div><%=x.email%></div></td>
+                <td><a href="/usuarios/<%=x._id%>" class="btn btn-info">Detalhar</a></td>
+                <td><a href="/usuarios/atualizar/<%=x._id%>" class="btn btn-warning">Atualizar</a></td>
+                <td><a onclick="return confirm('Deseja realmente excluir esse usuário?')" href="/usuarios/remover/<%=x._id%>" class="btn btn-danger">Excluir</a></td>
+            </tr>
+        <% }; %>
+    </table>
+    <br><div><a href="/" class="btn btn-primary">Página Inicial</a></div>
+    </div>
+    <%- include("../partials/rodape.ejs"); %>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <%- include("../partials/cabecalho.ejs"); %>
+</head>
+<body>
+    <div class="container">
+        <h2><%= aluno._id? "Atualizar": "Cadastrar"%> Aluno</h2>
+        <form action="<%= aluno._id? "/alunos/atualizar": "/alunos"%>" method="post">
+            <input type="hidden" name="id" value="<%=aluno._id%>">
+            <div><label class="form-label" for="mat">Matrícula: </label> <input class="form-control" type="number" id="mat" name="mat" value="<%=aluno.matricula%>" required></div>
+            <div><label class="form-label" for="nome">Nome: </label> <input class="form-control" type="text" id="nome" name="nome" value="<%=aluno.nome%>" required></div>
+            <div><label class="form-label" for="curso">Curso: </label> <input class="form-control" type="text" id="curso" name="curso" value="<%=aluno.curso%>" required></div>
+            <div><label class="form-label" for="periodo">Período: </label> <input class="form-control" type="number" id="periodo" name="periodo" value="<%=aluno.periodo%>" required></div><br>
+            <button type="submit" class="btn btn-success"><%= aluno._id? "Atualizar": "Salvar"%></button>
+            <a href="/" class="btn btn-primary">Voltar</a>
+        </form>
+    </div>
+    <%- include("../partials/rodape.ejs"); %>
+</body>
+</html>

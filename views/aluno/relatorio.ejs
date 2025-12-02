@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <%- include("../partials/cabecalho.ejs"); %>
+</head>
+<body>
+    <div class="container">
+        <div><a href="/alunos/cadastrar" class="btn btn-success">Cadastrar</a></div>
+        <h2>Relatório de alunos</h2>
+    <% if(status=="1"){%>
+        <div class="alert alert-success alert-dismissible">
+            Aluno cadastrado com <b>sucesso!</b>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" slot="end"></button><br>
+        </div>
+    <% }else if(status=="2"){ %>
+        <div class="alert alert-danger alert-dismissible">
+            Aluno removido com <b>sucesso!</b>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" slot="end"></button><br>
+        </div>
+    <% }else if(status=="3"){ %>
+        <div class="alert alert-warning alert-dismissible">
+            Aluno atualizado com <b>sucesso!</b>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" slot="end"></button><br>
+        </div>
+    <% }; %>
+    <table class="table table-striped">
+        <tr>
+            <th>Matrícula</th>
+            <th>Nome</th>
+            <th>Curso</th>
+            <th>Período</th>
+            <th>Detalhar</th>
+            <th>Atualizar</th>
+            <th>Excluir</th>
+        </tr>
+        <%for(const x of alunos){%>
+            <tr>
+                <td><div><%=x.matricula%></div></td>
+                <td><div><%=x.nome%></div></td>
+                <td><div><%=x.curso%></div></td>
+                <td><div><%=x.periodo%></div></td>
+                <td><a href="/alunos/<%=x._id%>" class="btn btn-info">Detalhar</a></td>
+                <td><a href="/alunos/atualizar/<%=x._id%>" class="btn btn-warning">Atualizar</a></td>
+                <td><a onclick="return confirm('Deseja mesmo excluir esse aluno?')" href="/alunos/remover/<%=x._id%>" class="btn btn-danger">Excluir</a></td>
+            </tr>
+        <% }; %>
+    </table>
+    <br><div><a href="/" class="btn btn-primary">Página Inicial</a></div>
+    </div>
+    <%- include("../partials/rodape.ejs"); %>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <%- include("../partials/cabecalho.ejs"); %>
+</head>
+<body>
+    <div class="container">
+        <% if(aluno==undefined){%>
+            <div>Não há aluno com essa matrícula</div>
+        <%}else{%>
+            <div>Matrícula: <%=aluno.matricula%></div>
+            <div>Nome: <%=aluno.nome%></div>
+            <div>Curso: <%=aluno.curso%></div>
+            <div>Período: <%=aluno.periodo%></div>
+        <%} %>
+        <br><a href="/alunos"  class="btn btn-primary">Voltar</a>
+    </div>
+    <%- include("../partials/rodape.ejs"); %>
+</body>
+</html>

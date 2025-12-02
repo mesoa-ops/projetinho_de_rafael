@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <link rel="stylesheet" href="/css/style.css">
+        <%- include("partials/cabecalho.ejs"); %>
+        
+    </head>
+    <body>
+        <div class="container">
+            <div><a href="/alunos"  class="btn btn-primary">Relatório de Alunos</a></div><br>
+            <div><a href="/alunos/cadastrar"  class="btn btn-primary">Cadastrar Aluno</a></div>
+        </div><br>
+        <div class="container">
+            <div><a href="/disciplinas"  class="btn btn-primary">Relatório de Disciplinas</a></div><br>
+            <div><a href="/disciplinas/cadastrar"  class="btn btn-primary">Cadastrar Disciplina</a></div>
+        </div><br>
+        <div class="container">
+            <div><a href="/usuarios"  class="btn btn-primary">Relatório de Usuários</a></div><br>
+            <div><a href="/usuarios/cadastrar"  class="btn btn-primary">Cadastrar Usuário</a></div>
+        </div>
+        <%- include("partials/rodape.ejs"); %>
+    </body>
+</html>

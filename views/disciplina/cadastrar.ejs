@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <%- include("../partials/cabecalho.ejs"); %>
+</head>
+<body>
+    <div class="container">
+        <h2><%= disciplina._id? "Atualizar": "Cadastrar"%> Disciplina</h2>
+        <form action="<%= disciplina._id? "/disciplinas/atualizar": "/disciplinas"%>" method="post">
+            <input type="hidden" name="id" value="<%=disciplina._id%>">
+            <div><label class="form-label" for="nome">Nome: </label> <input class="form-control" type="text" id="nome" name="nome" value="<%=disciplina.nome%>" required></div>
+            <div><label class="form-label" for="cargaHoraria">Carga Horária: </label> <input class="form-control" type="number" id="cargaHoraria" name="cargaHoraria" value="<%=disciplina.cargaHoraria%>" required></div>
+            <div><label class="form-label" for="professor">Professor: </label> <input class="form-control" type="text" id="professor" name="professor" value="<%=disciplina.professor%>" required></div><br>
+            <button type="submit" class="btn btn-success"><%= disciplina._id? "Atualizar": "Salvar"%></button>
+            <a href="/" class="btn btn-primary">Voltar</a>
+        </form>
+    </div>
+    <%- include("../partials/rodape.ejs"); %>
+</body>
+</html>
